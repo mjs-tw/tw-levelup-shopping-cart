@@ -12,5 +12,11 @@ describe(LineItem, () => {
       lineItem.addOne();
       expect(lineItem.getCount()).toEqual(1);
     });
+    it("is 0 when a product is added to it and then removed", () => {
+      const lineItem = new LineItem(new Product("Test", "test", 10.00));
+      lineItem.addOne();
+      lineItem.removeOne();
+      expect(lineItem.getCount()).toEqual(0);
+    });
   });
 });
