@@ -4,4 +4,8 @@ export class Cart {
     return 0.0;
   }
 
+  countItems() {
+    return 0;
+  }
+
 };
