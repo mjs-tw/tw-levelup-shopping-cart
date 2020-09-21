@@ -1,11 +1,20 @@
 export class Cart {
 
+  constructor() {
+    this.total = 0.0;
+    this.items = [];
+  }
+
   getTotal() {
-    return 0.0;
+    return this.total;
   }
 
   countItems() {
-    return 0;
+    return this.items.length;
+  }
+
+  addItem(item) {
+    this.items.push(item);
   }
 
 };
