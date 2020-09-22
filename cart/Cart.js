@@ -1,12 +1,11 @@
 export class Cart {
 
   constructor() {
-    this.total = 0.0;
     this.items = [];
   }
 
   getTotal() {
-    return this.total;
+    return this.items.map(i => i.getTotal()).reduce((a, b) => a + b, 0.0);
   }
 
   countItems() {
