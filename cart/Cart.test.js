@@ -1,5 +1,6 @@
 
 import { Cart } from "./Cart";
+import { Item } from "./Item";
 import { Product } from "./Product";
 
 describe(Cart, () => {
@@ -17,7 +18,7 @@ describe(Cart, () => {
     });
     it("is one when one item is in the cart", () => {
       const cart = new Cart();
-      cart.addItem(new Product("Espresso Blend, 250g", "ESP250", 14.0));
+      cart.addItem(new Item(new Product("ESP250", "Espresso Blend, 250g", 14.0)));
       expect(cart.countItems()).toEqual(1);
     });
   });

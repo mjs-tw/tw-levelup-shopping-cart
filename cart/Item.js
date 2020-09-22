@@ -1,4 +1,4 @@
-export class LineItem {
+export class Item {
 
   constructor(product) {
     this.product = product;
@@ -15,5 +15,9 @@ export class LineItem {
 
   removeOne() {
     this.count--;
+  }
+
+  getTotal() {
+    return this.count * this.product.getPrice();
   }
 }
