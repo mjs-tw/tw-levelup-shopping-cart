@@ -2,6 +2,7 @@
 import { Cart } from "./Cart";
 import { Item } from "./Item";
 import { Product } from "./Product";
+import { randLoop } from "./TestHelper";
 
 const PRODUCT_ONE = new Product("prod1", "Test product 1", 250, 10.00);
 const PRODUCT_TWO = new Product("prod2", "Test product 2", 500, 15.50);
@@ -27,12 +28,28 @@ describe(Cart, () => {
       cart.addItem(item1);
       cart.addItem(item2);
       expect(cart.getTotalPrice()).toBe(item1.getTotalPrice() + item2.getTotalPrice());
-      item1.addOne();
-      item2.addOne();
-      item1.addOne();
-      item2.addOne();
-      item2.addOne();
+      randLoop(5, () => item1.addOne());
+      randLoop(5, () => item2.addOne());
       expect(cart.getTotalPrice()).toBe(item1.getTotalPrice() + item2.getTotalPrice());
+    });
+  });
+
+  describe("getTotalWeight()", () => {
+    let cart;
+    beforeEach(() => {
+      cart = new Cart();
+      cart.addItem(new Item(PRODUCT_ONE));
+      cart.addItem(new Item(PRODUCT_TWO));
+    });
+    test("is zero when the cart has items but none added", () => {
+      expect(cart.getTotalWeight()).toBe(0);
+    });
+    test("is the sum of the total weights of all the products", () => {
+      randLoop(10, () => cart.getItem(0).addOne());
+      randLoop(10, () => cart.getItem(1).addOne());
+      expect(cart.getTotalWeight()).toBe(
+        cart.getItem(0).getTotalWeight() + cart.getItem(1).getTotalWeight()
+      );
     });
   });
 
@@ -43,7 +60,7 @@ describe(Cart, () => {
     });
     test("is one when one item is in the cart", () => {
       const cart = new Cart();
-      cart.addItem(new Item(new Product("ESP250", "Espresso Blend, 250g", 14.0)));
+      cart.addItem(new Item(new Product("ESP250", "Espresso Blend, 250g", 250, 14.0)));
       expect(cart.countItems()).toBe(1);
     });
   });
