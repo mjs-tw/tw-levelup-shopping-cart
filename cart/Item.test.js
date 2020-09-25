@@ -1,7 +1,7 @@
 import { Item } from "./Item";
 import { Product } from "./Product";
 
-const TEST_PRODUCT = new Product("test", "Test item", 10.00);
+const TEST_PRODUCT = new Product("test", "Test item", 200, 10.00);
 
 describe(Item, () => {
   describe("getCount()", () => {
@@ -19,6 +19,23 @@ describe(Item, () => {
       item.addOne();
       item.removeOne();
       expect(item.getCount()).toBe(0);
+    });
+  });
+  describe("getTotalWeight()", () => {
+    test("is zero when the Item is created", () => {
+      const item = new Item(TEST_PRODUCT);
+      expect(item.getTotalWeight()).toBe(0);
+    });
+    test("is the weight of as many of the products as have been added", () => {
+      const item = new Item(TEST_PRODUCT);
+      for (let i = 1; i <= 10; i++) {
+        item.addOne();
+        expect(item.getTotalWeight()).toBe(i * TEST_PRODUCT.getWeight());
+      }
+      for (let i = 1; i <= 10; i++) {
+        item.removeOne();
+        expect(item.getTotalWeight()).toBe((10 - i) * TEST_PRODUCT.getWeight());
+      }
     });
   });
   describe("getTotalPrice()", () => {

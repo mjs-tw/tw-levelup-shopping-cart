@@ -3,8 +3,8 @@ import { Cart } from "./Cart";
 import { Item } from "./Item";
 import { Product } from "./Product";
 
-const PRODUCT_ONE = new Product("prod1", "Test product 1", 10.00);
-const PRODUCT_TWO = new Product("prod2", "Test product 2", 15.50);
+const PRODUCT_ONE = new Product("prod1", "Test product 1", 250, 10.00);
+const PRODUCT_TWO = new Product("prod2", "Test product 2", 500, 15.50);
 
 describe(Cart, () => {
   describe("getTotalPrice()", () => {
