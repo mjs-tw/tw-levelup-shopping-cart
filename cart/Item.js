@@ -17,7 +17,7 @@ export class Item {
     this.count--;
   }
 
-  getTotal() {
+  getTotalPrice() {
     return this.count * this.product.getPrice();
   }
 }

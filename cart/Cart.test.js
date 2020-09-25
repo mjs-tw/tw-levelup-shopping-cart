@@ -7,18 +7,18 @@ const PRODUCT_ONE = new Product("prod1", "Test product 1", 10.00);
 const PRODUCT_TWO = new Product("prod2", "Test product 2", 15.50);
 
 describe(Cart, () => {
-  describe("getTotal()", () => {
+  describe("getTotalPrice()", () => {
     test("is zero when the cart is new", () => {
       const cart = new Cart();
-      expect(cart.getTotal()).toBe(0.0);
+      expect(cart.getTotalPrice()).toBe(0.0);
     });
     test("is the total for an item when that is the only one", () => {
       const cart = new Cart();
       const item = new Item(PRODUCT_ONE);
       cart.addItem(item);
-      expect(cart.getTotal()).toBe(item.getTotal());
+      expect(cart.getTotalPrice()).toBe(item.getTotalPrice());
       item.addOne();
-      expect(cart.getTotal()).toBe(item.getTotal());
+      expect(cart.getTotalPrice()).toBe(item.getTotalPrice());
     });
     test("is the sum of totals for all items", () => {
       const cart = new Cart();
@@ -26,13 +26,13 @@ describe(Cart, () => {
       const item2 = new Item(PRODUCT_TWO);
       cart.addItem(item1);
       cart.addItem(item2);
-      expect(cart.getTotal()).toBe(item1.getTotal() + item2.getTotal());
+      expect(cart.getTotalPrice()).toBe(item1.getTotalPrice() + item2.getTotalPrice());
       item1.addOne();
       item2.addOne();
       item1.addOne();
       item2.addOne();
       item2.addOne();
-      expect(cart.getTotal()).toBe(item1.getTotal() + item2.getTotal());
+      expect(cart.getTotalPrice()).toBe(item1.getTotalPrice() + item2.getTotalPrice());
     });
   });
 

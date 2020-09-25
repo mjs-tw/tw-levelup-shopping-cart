@@ -4,8 +4,8 @@ export class Cart {
     this.items = [];
   }
 
-  getTotal() {
-    return this.items.map(i => i.getTotal()).reduce((a, b) => a + b, 0.0);
+  getTotalPrice() {
+    return this.items.map(i => i.getTotalPrice()).reduce((a, b) => a + b, 0.0);
   }
 
   countItems() {

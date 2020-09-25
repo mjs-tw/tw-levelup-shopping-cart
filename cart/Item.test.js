@@ -21,27 +21,27 @@ describe(Item, () => {
       expect(item.getCount()).toBe(0);
     });
   });
-  describe("getTotal()", () => {
+  describe("getTotalPrice()", () => {
     test("is zero when the Item is created", () => {
       const item = new Item(TEST_PRODUCT);
-      expect(item.getTotal()).toBe(0.0);
+      expect(item.getTotalPrice()).toBe(0.0);
     });
     test("is the product price when added to it", () => {
       const item = new Item(TEST_PRODUCT);
       item.addOne();
-      expect(item.getTotal()).toBe(TEST_PRODUCT.getPrice());
+      expect(item.getTotalPrice()).toBe(TEST_PRODUCT.getPrice());
     });
     test("is twice the product price when a second one is added to it", () => {
       const item = new Item(TEST_PRODUCT);
       item.addOne();
       item.addOne();
-      expect(item.getTotal()).toBe(2 * TEST_PRODUCT.getPrice());
+      expect(item.getTotalPrice()).toBe(2 * TEST_PRODUCT.getPrice());
     });
     test("is zero when added to it and then removed", () => {
       const item = new Item(TEST_PRODUCT);
       item.addOne();
       item.removeOne();
-      expect(item.getTotal()).toBe(0.0);
+      expect(item.getTotalPrice()).toBe(0.0);
     });
   });
 });
