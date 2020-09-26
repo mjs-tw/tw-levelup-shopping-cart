@@ -24,4 +24,7 @@ export class Cart {
     return this.items[idx];
   }
 
+  calculateDiscount() {
+    return this.getTotalWeight() < 500 ? 0.0 : 0.1;
+  }
 };

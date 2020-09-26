@@ -64,4 +64,29 @@ describe(Cart, () => {
       expect(cart.countItems()).toBe(1);
     });
   });
+
+  describe("calculateDiscount", () => {
+    let cart;
+    beforeEach(() => {
+      cart = new Cart();
+      cart.addItem(new Item(PRODUCT_ONE));
+      cart.addItem(new Item(PRODUCT_TWO));
+    });
+    test("is zero for zero weight", () => {
+        expect(cart.calculateDiscount()).toBe(0.0);
+    });
+    test("is zero for less than 500g", () => {
+        cart.getItem(0).addOne();
+        expect(cart.calculateDiscount()).toBe(0.0);
+    });
+    test("is 10% for 500g or more", () => {
+        cart.getItem(1).addOne();
+        expect(cart.calculateDiscount()).toBe(0.1);
+        cart.getItem(0).addOne();
+        expect(cart.calculateDiscount()).toBe(0.1);
+        cart.getItem(1).addOne();
+        expect(cart.calculateDiscount()).toBe(0.1);
+    });
+});
+
 });
