@@ -65,7 +65,7 @@ describe(Cart, () => {
     });
   });
 
-  describe("calculateDiscount", () => {
+  describe("calculateDiscount()", () => {
     let cart;
     beforeEach(() => {
       cart = new Cart();
