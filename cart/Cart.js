@@ -1,3 +1,6 @@
+/**
+ * A simple shopping cart.
+ */
 export class Cart {
 
   constructor() {

@@ -1,5 +1,8 @@
 import { descriptions } from "jest-config";
 
+/**
+ * A product that can be sold.
+ */
 export class Product {
 
   constructor(sku, name, price) {
