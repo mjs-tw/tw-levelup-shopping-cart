@@ -5,16 +5,16 @@ const TEST_PRODUCT = new Product("test", "Test item", 10.00);
 
 describe(Item, () => {
   describe("getCount()", () => {
-    test("is 1 when the Item is created", () => {
+    it("is 1 when the Item is created", () => {
       const item = new Item(TEST_PRODUCT);
       expect(item.getCount()).toBe(1);
     });
-    test("is 2 when a product is added to it", () => {
+    it("is 2 when a product is added to it", () => {
       const item = new Item(TEST_PRODUCT);
       item.addOne();
       expect(item.getCount()).toBe(2);
     });
-    test("is 1 when a product is added to it and then removed", () => {
+    it("is 1 when a product is added to it and then removed", () => {
       const item = new Item(TEST_PRODUCT);
       item.addOne();
       item.removeOne();
@@ -22,20 +22,20 @@ describe(Item, () => {
     });
   });
   describe("getTotal()", () => {
-    test("is 10 when the Item is created", () => {
+    it("is 10 when the Item is created", () => {
       const item = new Item(TEST_PRODUCT);
       expect(item.getTotal()).toBe(10.0);
     });
-    test("is the product price when created", () => {
+    it("is the product price when created", () => {
       const item = new Item(TEST_PRODUCT);
       expect(item.getTotal()).toBe(TEST_PRODUCT.getPrice());
     });
-    test("is twice the product price when a second one is added to it", () => {
+    it("is twice the product price when a second one is added to it", () => {
       const item = new Item(TEST_PRODUCT);
       item.addOne();
       expect(item.getTotal()).toBe(2 * TEST_PRODUCT.getPrice());
     });
-    test("is zero when added to it and then removed", () => {
+    it("is zero when added to it and then removed", () => {
       const item = new Item(TEST_PRODUCT);
       item.removeOne();
       expect(item.getTotal()).toBe(0.0);
