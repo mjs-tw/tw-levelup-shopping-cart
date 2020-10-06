@@ -5,7 +5,7 @@ export class Item {
 
   constructor(product) {
     this.product = product;
-    this.count = 0;
+    this.count = 1;
   }
 
   getCount() {
