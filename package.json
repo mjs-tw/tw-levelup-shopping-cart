@@ -4,8 +4,9 @@
   "description": "Simple shopping cart in JS",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --verbose",
-    "watch": "jest --watch"
+    "test": "jest --verbose",
+    "watch": "jest --watch",
+    "coverage": "jest --verbose --coverage"
   },
   "repository": {
     "type": "git",
