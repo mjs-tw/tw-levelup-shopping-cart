@@ -1,5 +1,3 @@
-import { descriptions } from "jest-config";
-
 /**
  * A product that can be sold.
  */
