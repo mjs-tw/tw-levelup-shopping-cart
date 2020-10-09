@@ -3,24 +3,24 @@
  */
 export class Item {
 
-  constructor(product) {
-    this.product = product;
-    this.count = 1;
-  }
+    constructor(product) {
+        this.product = product;
+        this.count = 1;
+    }
 
-  getCount() {
-    return this.count;
-  }
+    getCount() {
+        return this.count;
+    }
 
-  addOne() {
-    this.count++;
-  }
+    addOne() {
+        this.count++;
+    }
 
-  removeOne() {
-    this.count--;
-  }
+    removeOne() {
+        this.count--;
+    }
 
-  getTotal() {
-    return this.count * this.product.getPrice();
-  }
+    getTotal() {
+        return this.count * this.product.getPrice();
+    }
 }

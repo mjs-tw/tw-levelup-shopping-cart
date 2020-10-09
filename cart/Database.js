@@ -1,6 +1,10 @@
-import { Item } from "./Item";
+import {
+    Item
+} from "./Item";
 
-const { Product } = require("./Product");
+const {
+    Product
+} = require("./Product");
 
 const PRODUCTS = {
     "sp250": new Product("sp250", "Special Blend 250g", 12.50),
